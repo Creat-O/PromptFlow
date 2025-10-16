@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "paths": {
+      "utils/*": ["./src/utils/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.d.ts"]
+}
