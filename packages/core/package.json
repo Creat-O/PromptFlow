@@ -1,0 +1,10 @@
+{
+  "name": "@promptflow/core",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node src/FlowExecutor.ts",
+    "build": "tsc -p tsconfig.json"
+  }
+}
