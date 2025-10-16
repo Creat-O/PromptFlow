@@ -3,6 +3,14 @@ version: "3.9"
 name: promptflow
 
 services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
   core:
     build:
       context: .
@@ -13,9 +21,7 @@ services:
       JAVA_RUNTIME_URL: http://java:8080
       FLOW_PATH: /app/examples/flow.yaml
       FLOW_INPUT: ${FLOW_INPUT}
-    depends_on:
-      - python
-      - java
+    depends_on: [python, java, redis, rabbitmq]
     command: ["node", "dist/index.js"]
     volumes:
       - ./:/app

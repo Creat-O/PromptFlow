@@ -1,0 +1,16 @@
+id: crosslang_flow
+steps:
+  - id: summarize
+    runtime: python
+    provider: openai:gpt-4o-mini
+    prompt: "Summarize this: {{input.text}}"
+
+  - id: translate
+    runtime: java
+    provider: deepl
+    prompt: "Translate to Korean: {{summarize.output}}"
+
+  - id: keywords
+    runtime: python
+    provider: openai:gpt-4o-mini
+    prompt: "Extract 3 keywords: {{translate.output}}"
